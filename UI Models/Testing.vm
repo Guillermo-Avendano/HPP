@@ -1,0 +1,119 @@
+{"editors": {
+    "variables": {
+        "empList": [{
+            "variableName": "empList",
+            "controlName": "Autocomplete",
+            "usedFor": "Custom List Reference",
+            "page": "View1",
+            "source": "Ui-Modeller",
+            "pageId": "xxx_3982014",
+            "uuid": "816fbbb9-26bf-4133-b3c0-72a0f529615a"
+        }],
+        "emp.name": [{
+            "variableName": "emp.name",
+            "controlName": "Autocomplete",
+            "usedFor": "Selected Option Reference",
+            "page": "View1",
+            "source": "Ui-Modeller",
+            "pageId": "xxx_3982014",
+            "uuid": "044cef8e-cf63-4558-9d80-d6490e4f440a"
+        }]
+    },
+    "tabName": "Testing.vm",
+    "packIcon": {
+        "fileJson": "",
+        "fileName": "",
+        "displayName": "",
+        "source": "",
+        "projectName": "",
+        "type": "image"
+    },
+    "isValid": true,
+    "index": 0,
+    "url": "/rest",
+    "customVariables": {
+        "checksum_old": "",
+        "list": [
+            {
+                "valueErrorMessage": "",
+                "nameValid": true,
+                "displayName": "empList",
+                "isValid": true,
+                "name": "",
+                "valueValid": true,
+                "type": "Static JSON",
+                "value": "{}"
+            },
+            {
+                "valueErrorMessage": "",
+                "nameValid": true,
+                "displayName": "emp",
+                "isValid": true,
+                "name": "",
+                "valueValid": true,
+                "type": "Static JSON",
+                "value": "{}"
+            },
+            {
+                "valueErrorMessage": "",
+                "nameValid": true,
+                "displayName": "target",
+                "isValid": true,
+                "name": "",
+                "valueValid": true,
+                "type": "Static JSON",
+                "value": "{}"
+            }
+        ],
+        "checksum_new": 0
+    },
+    "assetsChecksum": {
+        "checksum_old": 3936542910,
+        "checksum_new": 3936542910
+    },
+    "customClasses": {},
+    "pages": [{
+        "pageLifeCycle": {
+            "selectedlifecycle": "{\"ngOnInit\":{\"disableEditor\":false,\"isSaved\":true,\"name\":\"ngOnInit\",\"content\":\"{\\\"collaboration\\\":{},\\\"process\\\":{\\\"id\\\":\\\"Process_1\\\",\\\"startEvent\\\":{\\\"id\\\":\\\"StartEvent_82su3p\\\",\\\"name\\\":\\\"\\\",\\\"businessProp\\\":{\\\"blockId\\\":\\\"StartEvent_82su3p\\\"},\\\"type\\\":\\\"bpmn:startEvent\\\",\\\"outgoing\\\":\\\"SequenceFlow_u0pu7q\\\"},\\\"functionalTask\\\":{\\\"id\\\":\\\"FunctionalTask_iri3r\\\",\\\"name\\\":\\\"\\\",\\\"businessProp\\\":{\\\"blockId\\\":\\\"FunctionalTask_iri3r\\\",\\\"functionBody\\\":\\\"\\\\nlet source = { apellido : \\\\\\\"Uno\\\\\\\", direccion : \\\\\\\"Dos\\\\\\\"};\\\\n\\\\nlet tg =  { nombre : \\\\\\\"\\\\\\\", apellido : \\\\\\\"1\\\\\\\", direccion : \\\\\\\"2\\\\\\\" };\\\\n\\\\nthis.data.target = util.copyJson(source, tg);\\\\n\\\\nconsole.log (\\\\\\\"source: \\\\\\\" + JSON.stringify(source));\\\\nconsole.log (\\\\\\\"target: \\\\\\\" + JSON.stringify(tg));\\\\n\\\\nconsole.log (\\\\\\\"copyJson -> (result) \\\\\\\" + JSON.stringify(this.data.target));\\\\n\\\\n\\\\nlet listaEmpleados  = [{ email : \\\\\\\"edu@asg.com\\\\\\\", name : \\\\\\\"Edu\\\\\\\" , area : \\\\\\\"TI\\\\\\\"},\\\\n                      { email : \\\\\\\"gui@asg.com\\\\\\\", name : \\\\\\\"Gui\\\\\\\" , area : \\\\\\\"TI\\\\\\\"},\\\\n                      { email : \\\\\\\"lui@asg.com\\\\\\\", name : \\\\\\\"Luiz\\\\\\\" , area : \\\\\\\"TI\\\\\\\"},];\\\\n\\\\nthis.data.empList = util.arrGetJsonArr(\\\\\\\"name\\\\\\\");\\\\n\\\\n\\\\nlet arr1  = [{ a : \\\\\\\"11\\\\\\\", b : \\\\\\\"12\\\\\\\"},\\\\n             { a : \\\\\\\"21\\\\\\\", b : \\\\\\\"22\\\\\\\"},\\\\n             { a : \\\\\\\"31\\\\\\\", b : \\\\\\\"32\\\\\\\"}];\\\\n\\\\nconsole.log (\\\\\\\"arrGetJsonArr:-> \\\\\\\" + JSON.stringify(util.arrGetJsonArr(arr1, \\\\\\\"a\\\\\\\")));\\\\n\\\\nlet json1 =  { a : \\\\\\\"51\\\\\\\", b : \\\\\\\"52\\\\\\\"};\\\\n\\\\nconsole.log (\\\\\\\"arrAdd:-> \\\\\\\" + JSON.stringify(util.arrAdd(arr1,json1,\\\\\\\"a\\\\\\\")));\\\\n\\\\nlet json2 = { a : \\\\\\\"21\\\\\\\", b : \\\\\\\"22 Updated\\\\\\\"};\\\\n\\\\nconsole.log (\\\\\\\"arrUpdate:-> \\\\\\\" + JSON.stringify(util.arrUpdate(arr1,json2,\\\\\\\"a\\\\\\\")));\\\\n\\\\nconsole.log (\\\\\\\"arrSort (asc):-> \\\\\\\" + JSON.stringify(util.arrSort(arr1,\\\\\\\"a\\\\\\\", true)));\\\\n\\\\nconsole.log (\\\\\\\"arrRemove:-> \\\\\\\" + JSON.stringify(util.arrRemove(arr1,json2,\\\\\\\"a\\\\\\\")));\\\\n\\\\nlet json3  = { a : \\\\\\\"31\\\\\\\", b : \\\\\\\"22\\\\\\\"};\\\\nconsole.log (\\\\\\\"arrRemove:-> \\\\\\\" + JSON.stringify(util.arrRemove(arr1,json3,\\\\\\\"a\\\\\\\")));\\\\n\\\\nconsole.log (\\\\\\\"arrSort (desc):-> \\\\\\\" + JSON.stringify(util.arrSort(arr1,\\\\\\\"a\\\\\\\", false)));\\\\n\\\\nconsole.log (\\\\\\\"arrFind:-> \\\\\\\" + JSON.stringify(util.arrFind(arr1,\\\\\\\"a\\\\\\\", \\\\\\\"11\\\\\\\")));\\\\n\\\"},\\\"events\\\":[],\\\"type\\\":\\\"bpmn:functionalTask\\\",\\\"outgoing\\\":\\\"SequenceFlow_kcjzr9\\\",\\\"incoming\\\":\\\"SequenceFlow_u0pu7q\\\"},\\\"endEvent\\\":{\\\"id\\\":\\\"EndEvent_z4fga\\\",\\\"name\\\":\\\"\\\",\\\"businessProp\\\":{\\\"blockId\\\":\\\"EndEvent_z4fga\\\"},\\\"type\\\":\\\"bpmn:endEvent\\\",\\\"incoming\\\":\\\"SequenceFlow_kcjzr9\\\"},\\\"sequenceFlow\\\":[{\\\"id\\\":\\\"SequenceFlow_u0pu7q\\\",\\\"sourceRef\\\":\\\"StartEvent_82su3p\\\",\\\"targetRef\\\":\\\"FunctionalTask_iri3r\\\",\\\"businessProp\\\":{},\\\"type\\\":\\\"bpmn:sequenceFlow\\\",\\\"name\\\":\\\"\\\"},{\\\"id\\\":\\\"SequenceFlow_kcjzr9\\\",\\\"sourceRef\\\":\\\"FunctionalTask_iri3r\\\",\\\"targetRef\\\":\\\"EndEvent_z4fga\\\",\\\"businessProp\\\":{\\\"blockId\\\":\\\"SequenceFlow_kcjzr9\\\"},\\\"type\\\":\\\"bpmn:sequenceFlow\\\",\\\"name\\\":\\\"\\\"}]},\\\"BPMNDiagram\\\":{\\\"BPMNPlane\\\":{\\\"BPMNEdge\\\":[{\\\"id\\\":\\\"SequenceFlow_u0pu7q_ve\\\",\\\"waypoint\\\":[{\\\"x\\\":\\\"203.9999976331536\\\",\\\"y\\\":\\\"67.01988914093255\\\"},{\\\"x\\\":\\\"239.49999687942574\\\",\\\"y\\\":\\\"67.01988914093255\\\"},{\\\"x\\\":\\\"239.49999687942574\\\",\\\"y\\\":\\\"80.01988564283356\\\"},{\\\"x\\\":\\\"274.99999612569786\\\",\\\"y\\\":\\\"80.01988564283356\\\"}],\\\"bpmnElement\\\":\\\"SequenceFlow_u0pu7q\\\"},{\\\"id\\\":\\\"SequenceFlow_kcjzr9_ve\\\",\\\"waypoint\\\":[{\\\"x\\\":\\\"444.99999612569786\\\",\\\"y\\\":\\\"80.01988564283356\\\"},{\\\"x\\\":\\\"503.9999940969724\\\",\\\"y\\\":\\\"80.01988564283356\\\"},{\\\"x\\\":\\\"503.9999940969724\\\",\\\"y\\\":\\\"67.01988914093255\\\"},{\\\"x\\\":\\\"562.9999920682469\\\",\\\"y\\\":\\\"67.01988914093255\\\"}],\\\"bpmnElement\\\":\\\"SequenceFlow_kcjzr9\\\"}],\\\"BPMNShape\\\":[{\\\"id\\\":\\\"StartEvent_82su3p_ve\\\",\\\"Bounds\\\":{\\\"x\\\":167.9999976331536,\\\"y\\\":49.01988914093255,\\\"cx\\\":185.9999976331536,\\\"cy\\\":67.01988914093255,\\\"width\\\":36,\\\"height\\\":36},\\\"bpmnElement\\\":\\\"StartEvent_82su3p\\\"},{\\\"id\\\":\\\"FunctionalTask_iri3r_ve\\\",\\\"Bounds\\\":{\\\"x\\\":274.99999612569786,\\\"y\\\":59.03988564283355,\\\"cx\\\":359.99999612569786,\\\"cy\\\":80.01988518506988,\\\"width\\\":170,\\\"height\\\":41.959999084472656},\\\"bpmnElement\\\":\\\"FunctionalTask_iri3r\\\"},{\\\"id\\\":\\\"EndEvent_z4fga_ve\\\",\\\"Bounds\\\":{\\\"x\\\":562.9999920682469,\\\"y\\\":49.01988914093255,\\\"cx\\\":580.9999920682469,\\\"cy\\\":67.01988914093255,\\\"width\\\":36,\\\"height\\\":36},\\\"bpmnElement\\\":\\\"EndEvent_z4fga\\\"}]},\\\"id\\\":\\\"Process_1_ve\\\",\\\"bpmnElement\\\":\\\"Process_1\\\"}}\",\"id\":\"process_editor_ngOnInit 1623435294790\",\"description\":\"\",\"eventType\":0,\"scriptId\":\"scriptID_8wj5z7\"}}",
+            "lifeCycle": []
+        },
+        "checksum_old": 3406626148,
+        "defaultPage": true,
+        "validName": true,
+        "name": "View1",
+        "id": "xxx_3982014",
+        "validUrl": true,
+        "routingUrl": "view1",
+        "content": {
+            "css": ".wrapper_asg_bkgrd",
+            "wrapperclasses": ["wrapper_asg_bkgrd"],
+            "wrapperstyles": "",
+            "html": "<div ui-modeller-type=\"header\" id=\"header-pqikobz9cgj\" label=\"View-1\" class=\"header\"><span id=\"span-m63lf7wfjgs\">View-1<\/span><\/div><div ui-modeller-type=\"um-container\" id=\"um-container-svlva1ad0or\" class=\"um-control\"><mat-form-field global=\"true\" placeholder=\"Select Vehicle\" ui-modeller-type=\"autocomplete\" custom-country-list=\"empList\" key=\"vehicle\" id=\"autocomplete-aphsqzmk5tn\" validations-id-mapping=\"{&quot;Id&quot;:&quot;6b367dcf-7c19-497a-91d0-045de3f20639&quot;,&quot;Custom List Reference&quot;:&quot;c9a29cf7-1de5-4e6f-b03c-59dd1ec67add&quot;,&quot;Selected Option Reference&quot;:&quot;9a86d605-37c9-4b60-b790-c805c97b737a&quot;}\" variable-id-mapping=\"{&quot;Custom List Reference&quot;:&quot;816fbbb9-26bf-4133-b3c0-72a0f529615a&quot;,&quot;Selected Option Reference&quot;:&quot;044cef8e-cf63-4558-9d80-d6490e4f440a&quot;}\" ng-model=\"emp.name\" class=\"example-full-width mat-form-field ng-tns-c25-29 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder\"><div data-invisible=\"\" id=\"div-rzu93wzxvv\" class=\"mat-form-field-wrapper\"><div data-invisible=\"\" id=\"div-5ji2plj5f2i\" class=\"mat-form-field-flex\"><div data-invisible=\"\" id=\"div-1ymynhn7qoy\" class=\"mat-form-field-infix\"><input readonly=\"\" data-invisible=\"\" aria-label=\"Number\" matinput=\"\" placeholder=\"Select Vehicle\" type=\"text\" autocomplete=\"off\" role=\"combobox\" aria-autocomplete=\"list\" aria-expanded=\"false\" aria-haspopup=\"true\" id=\"mat-input-22\" aria-invalid=\"false\" aria-required=\"false\" class=\"mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored\"/><mat-autocomplete data-invisible=\"\" id=\"mat-autocomplete-01wesv156qao\" class=\"mat-autocomplete\"><\/mat-autocomplete><span data-invisible=\"\" id=\"span-d75i4uk1y7l\" class=\"mat-form-field-label-wrapper\"><label data-invisible=\"\" id=\"mat-form-field-label-45\" for=\"mat-input-22\" aria-owns=\"mat-input-22\" class=\"mat-form-field-label ng-tns-c25-29 ng-star-inserted mat-empty mat-form-field-empty\">Select Vehicle <\/label><\/span><\/div><\/div><div data-invisible=\"\" id=\"div-osn8zpxtgyo\" class=\"mat-form-field-underline ng-tns-c25-29 ng-star-inserted\"><span data-invisible=\"\" id=\"span-wu4fpqoakc8\" class=\"mat-form-field-ripple\"><\/span><\/div><div data-invisible=\"\" id=\"div-rtvtneke35\" class=\"mat-form-field-subscript-wrapper\"><div data-invisible=\"\" id=\"iatr1\" class=\"mat-form-field-hint-wrapper ng-tns-c25-29 ng-trigger ng-trigger-transitionMessages ng-star-inserted\"><div data-invisible=\"\" id=\"div-lvgzndxhp8\" class=\"mat-form-field-hint-spacer\"><\/div><\/div><\/div><\/div><\/mat-form-field><\/div>"
+        },
+        "checksum_new": 134436238,
+        "externalScriptsAltered": 1623689594614
+    }],
+    "assets": [
+        {
+            "fileJson": "{\"name\":\"Util.js\",\"type\":6,\"parentName\":\"UI Models\",\"location\":\"/HPP/UI Models\",\"properties\":{\"isWorkspaceReady\":true},\"meta\":null,\"size\":483,\"errorMessage\":null,\"parentId\":\"a0deee7e-4772-4487-ae1c-6fbbf2f82148\",\"projectId\":\"21efb2e9-d872-47bc-9b32-7702008aae8b\",\"referenceId\":null,\"namespaceId\":null,\"content\":null,\"id\":\"c47e14ce-7669-4773-9886-e707ba6cef1a\",\"createdOn\":\"2021-06-09T09:22:17.932-03:00\",\"modifiedOn\":\"2021-06-13T10:43:43.270-03:00\",\"modifiedBy\":null,\"createdBy\":null,\"rolePack\":null,\"buildProgress\":false,\"contentAsString\":\"\",\"contentAsBytes\":null,\"displayName\":\"Util.js-UI Models\"}",
+            "fileName": "Util.js",
+            "displayName": "Util.js-UI Models",
+            "variable": "util",
+            "source": "/rest/projects/21efb2e9-d872-47bc-9b32-7702008aae8b/files/c47e14ce-7669-4773-9886-e707ba6cef1a",
+            "projectName": "HPPv4",
+            "type": "script"
+        },
+        {
+            "fileJson": "{\"name\":\"HPP.js\",\"type\":6,\"parentName\":\"UI Models\",\"location\":\"/HPP/UI Models\",\"properties\":{\"isWorkspaceReady\":true},\"meta\":\"{}\",\"size\":0,\"errorMessage\":null,\"parentId\":\"a0deee7e-4772-4487-ae1c-6fbbf2f82148\",\"projectId\":\"21efb2e9-d872-47bc-9b32-7702008aae8b\",\"referenceId\":null,\"namespaceId\":\"\",\"content\":null,\"id\":\"94103744-36c2-4d14-bf8f-3d2c414c7ced\",\"createdOn\":\"2021-06-14T10:38:56.254-03:00\",\"modifiedOn\":\"2021-06-14T10:41:14.095-03:00\",\"modifiedBy\":null,\"createdBy\":null,\"rolePack\":null,\"buildProgress\":false,\"contentAsBytes\":null,\"contentAsString\":\"\",\"displayName\":\"HPP.js-UI Models\"}",
+            "fileName": "HPP.js",
+            "displayName": "HPP.js-UI Models",
+            "variable": "HPP",
+            "source": "/rest/projects/21efb2e9-d872-47bc-9b32-7702008aae8b/files/94103744-36c2-4d14-bf8f-3d2c414c7ced",
+            "projectName": "HPPv4",
+            "type": "script"
+        }
+    ],
+    "id": "e0d37eb6-bc2a-4cfa-a6b1-bdb81aa471c0",
+    "validations": {},
+    "globalCss": "*{ box-sizing: border-box; } body{margin: 0;} .fix8d0a106e05b2{position: fixed;}#iatr1{opacity:1;transform:translateY(0%);}"
+}}
