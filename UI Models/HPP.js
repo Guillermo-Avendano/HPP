@@ -40,6 +40,16 @@ class HPP {
           default:
             // code block
         }
+        
+        // Propiedades Comunes y variables de uso de estados
+        jsonReturn.ST_IDLE          = "IDLE";
+        jsonReturn.filtro           = "";
+        jsonReturn.saveAnalisis     = "";
+        jsonReturn.btn              = "";
+        // Solo se usaran para procesos IDLE
+        jsonReturn.process_date     = "";
+        jsonReturn.process_date_end = "";
+        
        Object.preventExtensions(jsonReturn);  
        
        return jsonReturn;
