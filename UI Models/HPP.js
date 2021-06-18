@@ -45,6 +45,7 @@ class HPP {
         jsonReturn.ST_IDLE          = "IDLE";
         jsonReturn.filtro           = "";
         jsonReturn.saveAnalisis     = "";
+        jsonReturn.continua         = "OK";
         jsonReturn.btn              = "";
         // Solo se usaran para procesos IDLE
         jsonReturn.process_date     = "";
