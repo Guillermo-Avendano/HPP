@@ -1,5 +1,5 @@
 function getInbox(){
-	var queryStr = "select * from index_v where process.target_area   = ?";
+	var queryStr = "select * from inbox_v where target_area   = ?";
 	try{
 		$s.query("HPPds", queryStr);
 		$s.setString(1, "target_area");
