@@ -155,7 +155,7 @@
             "id": "StartEvent_ep9qfu",
             "type": "bpmn:startEvent"
         },
-        "id": "Process_73c9z7",
+        "id": "Process_17kmzgi",
         "userTask": [
             {
                 "outgoing": "SequenceFlow_1b2uerj",
@@ -164,8 +164,8 @@
                     "email-type": "text/html",
                     "assignee-role": {
                         "roleMeta": "",
-                        "roleName": "contratosROLE",
-                        "actualData": "{\"name\":\"contratosROLE.role\",\"type\":14,\"parentName\":\"App Roles\",\"location\":\"/HPP/App Roles\",\"properties\":{},\"meta\":null,\"size\":0,\"errorMessage\":null,\"parentId\":null,\"projectId\":\"21efb2e9-d872-47bc-9b32-7702008aae8b\",\"referenceId\":\"70d5f7ce-761f-4f52-90a7-5991fb58a509\",\"namespaceId\":null,\"content\":null,\"id\":\"3d50ddb7-11e2-4496-abaa-7cb0f0f9e4bc\",\"createdOn\":\"2021-06-22T08:06:49.641-03:00\",\"modifiedOn\":\"2021-06-22T08:06:49.641-03:00\",\"modifiedBy\":null,\"createdBy\":null,\"rolePack\":null,\"buildProgress\":false,\"contentAsBytes\":null,\"contentAsString\":\"\"}"
+                        "roleName": "solicitanteROLE",
+                        "actualData": "{\"name\":\"solicitanteROLE.role\",\"type\":14,\"parentName\":\"App Roles\",\"location\":\"/HPP/App Roles\",\"properties\":{},\"meta\":null,\"size\":0,\"errorMessage\":null,\"parentId\":null,\"projectId\":\"21efb2e9-d872-47bc-9b32-7702008aae8b\",\"referenceId\":\"b0d2383b-3334-457f-9ea9-bf6be998d603\",\"namespaceId\":null,\"content\":null,\"id\":\"3cd330ee-b13c-4d62-babd-2d6401e572b4\",\"createdOn\":\"2021-06-22T08:06:36.411-03:00\",\"modifiedOn\":\"2021-06-22T08:06:36.411-03:00\",\"modifiedBy\":null,\"createdBy\":null,\"rolePack\":null,\"buildProgress\":false,\"contentAsBytes\":null,\"contentAsString\":\"\"}"
                     },
                     "attribute-references": [],
                     "email-body": "Revise%20o%20contrato:%20cont_contrato_id%0D%0A%0D%0ASetor:%20cont_setor%0D%0AEmpresa%20contratada:%20cont_contratada%0D%0AEmpresa%20contratante:%20cont_contratante%0D%0AObjetivo%20do%20contrato:%20cont_objetivo%0D%0APedido%20por:%20cont_responsavel%0D%0AStatus:%20proc_status%0D%0ATempo%20total%20do%20processo:%20proc_total_duration",
@@ -331,7 +331,7 @@
         ]
     },
     "BPMNDiagram": {
-        "bpmnElement": "Process_73c9z7",
+        "bpmnElement": "Process_17kmzgi",
         "BPMNPlane": {
             "BPMNShape": [
                 {
@@ -606,7 +606,7 @@
                 }
             ]
         },
-        "id": "Process_73c9z7_ve"
+        "id": "Process_17kmzgi_ve"
     },
     "collaboration": {}
 }
