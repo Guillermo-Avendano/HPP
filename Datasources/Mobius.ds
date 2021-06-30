@@ -1,19 +1,19 @@
 {
     "webServiceContent": [],
-    "filePath": "C:\\Studio_Workspace\\Workspace\\default_user\\Projects\\HPPv4\\Datasources\\Mobius.ds",
+    "filePath": "C:\\Studio_Workspace\\Workspace\\default_user\\Projects\\HPP\\Datasources\\Mobius.ds",
     "content": {
         "datasourceType": 2,
-        "modifiedOn": "2021-06-09 09:22:17.65",
+        "modifiedOn": "2021-06-18 08:26:20.206",
         "datasourceProperties": {
             "contentServiceVersion": "11.1",
             "defaultConfig": {"repoIds": ["9BF40788-3FAC-4778-92F7-D844736790F9"]},
-            "datasourceId": "9e1aebf4-0505-4654-80d6-516ebcda156e",
-            "id": "4df4e270-3f46-4433-b00e-8c87c9c061dd",
+            "datasourceId": "bcfbcf27-1e02-4a38-96b2-03150cd36ac9",
+            "id": "a76ffb20-6811-4262-be12-8150e7fb3210",
             "discoveryUrl": "http://192.168.186.150:3111/mobius/rest/resources"
         },
         "name": "Mobius",
-        "id": "9e1aebf4-0505-4654-80d6-516ebcda156e",
-        "applicationId": "9299f7ab-8d8b-45aa-8caf-8e70caaa65a5",
-        "createdOn": "2021-06-09 09:22:17.65"
+        "id": "bcfbcf27-1e02-4a38-96b2-03150cd36ac9",
+        "applicationId": "21efb2e9-d872-47bc-9b32-7702008aae8b",
+        "createdOn": "2021-06-18 08:26:20.206"
     }
 }
