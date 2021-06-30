@@ -2,14 +2,6 @@
     "process": {
         "sequenceFlow": [
             {
-                "targetRef": "ExclusiveGateway_18hwx8j",
-                "businessProp": {},
-                "name": "",
-                "id": "SequenceFlow_4w1pi1",
-                "sourceRef": "StartEvent_ep9qfu",
-                "type": "bpmn:sequenceFlow"
-            },
-            {
                 "targetRef": "UserTask_oshb1v",
                 "businessProp": {"condition": "{target} == \"SOLICITANTE\""},
                 "name": "SOLICITANTE",
@@ -64,6 +56,14 @@
                 "id": "SequenceFlow_1g0xfm0",
                 "sourceRef": "UserTask_10hke6s",
                 "type": "bpmn:sequenceFlow"
+            },
+            {
+                "targetRef": "ExclusiveGateway_18hwx8j",
+                "businessProp": {},
+                "name": "",
+                "id": "SequenceFlow_14huk2d",
+                "sourceRef": "StartEvent_ep9qfu",
+                "type": "bpmn:sequenceFlow"
             }
         ],
         "endEvent": [
@@ -95,7 +95,7 @@
                     "SequenceFlow_cix4z",
                     "SequenceFlow_22dbq7"
                 ],
-                "incoming": "SequenceFlow_4w1pi1",
+                "incoming": "SequenceFlow_14huk2d",
                 "businessProp": {},
                 "name": "Verifica Solicitante",
                 "id": "ExclusiveGateway_18hwx8j",
@@ -113,8 +113,19 @@
                 "type": "bpmn:exclusiveGateway"
             }
         ],
+        "textAnnotation": {
+            "incoming": "Association_cmtmyp",
+            "businessProp": {},
+            "name": "",
+            "id": "TextAnnotation_1vkphhm",
+            "text": "Inicio de Proceso",
+            "type": "bpmn:textAnnotation"
+        },
         "startEvent": {
-            "outgoing": "SequenceFlow_4w1pi1",
+            "outgoing": [
+                "Association_cmtmyp",
+                "SequenceFlow_14huk2d"
+            ],
             "businessProp": {
                 "defaultPriority": "Low",
                 "due-date": false,
@@ -155,7 +166,13 @@
             "id": "StartEvent_ep9qfu",
             "type": "bpmn:startEvent"
         },
-        "id": "Process_1skm9cz",
+        "association": {
+            "targetRef": "TextAnnotation_1vkphhm",
+            "id": "Association_cmtmyp",
+            "sourceRef": "StartEvent_ep9qfu",
+            "type": "bpmn:association"
+        },
+        "id": "Process_11sxj73",
         "userTask": [
             {
                 "outgoing": "SequenceFlow_1b2uerj",
@@ -331,7 +348,7 @@
         ]
     },
     "BPMNDiagram": {
-        "bpmnElement": "Process_1skm9cz",
+        "bpmnElement": "Process_11sxj73",
         "BPMNPlane": {
             "BPMNShape": [
                 {
@@ -397,11 +414,11 @@
                 {
                     "bpmnElement": "StartEvent_ep9qfu",
                     "Bounds": {
-                        "cx": 150,
-                        "cy": 191.5,
-                        "x": 132,
+                        "cx": 84,
+                        "cy": 191,
+                        "x": 66,
                         "width": 36,
-                        "y": 162,
+                        "y": 161.5,
                         "height": 59
                     },
                     "id": "StartEvent_ep9qfu_ve"
@@ -441,31 +458,21 @@
                         "height": 76.33000183105469
                     },
                     "id": "UserTask_3ewfp7_ve"
+                },
+                {
+                    "bpmnElement": "TextAnnotation_1vkphhm",
+                    "Bounds": {
+                        "cx": 84,
+                        "cy": 94,
+                        "x": 34,
+                        "width": 100,
+                        "y": 76,
+                        "height": 36
+                    },
+                    "id": "TextAnnotation_1vkphhm_ve"
                 }
             ],
             "BPMNEdge": [
-                {
-                    "waypoint": [
-                        {
-                            "x": "168",
-                            "y": "180"
-                        },
-                        {
-                            "x": "250",
-                            "y": "180"
-                        },
-                        {
-                            "x": "250",
-                            "y": "178.5"
-                        },
-                        {
-                            "x": "332",
-                            "y": "178.5"
-                        }
-                    ],
-                    "bpmnElement": "SequenceFlow_4w1pi1",
-                    "id": "SequenceFlow_4w1pi1_ve"
-                },
                 {
                     "waypoint": [
                         {
@@ -603,10 +610,46 @@
                     ],
                     "bpmnElement": "SequenceFlow_1g0xfm0",
                     "id": "SequenceFlow_1g0xfm0_ve"
+                },
+                {
+                    "waypoint": [
+                        {
+                            "x": "84",
+                            "y": "161.5"
+                        },
+                        {
+                            "x": "84",
+                            "y": "106"
+                        }
+                    ],
+                    "bpmnElement": "Association_cmtmyp",
+                    "id": "Association_cmtmyp_ve"
+                },
+                {
+                    "waypoint": [
+                        {
+                            "x": "102",
+                            "y": "179.5"
+                        },
+                        {
+                            "x": "217",
+                            "y": "179.5"
+                        },
+                        {
+                            "x": "217",
+                            "y": "178.5"
+                        },
+                        {
+                            "x": "332",
+                            "y": "178.5"
+                        }
+                    ],
+                    "bpmnElement": "SequenceFlow_14huk2d",
+                    "id": "SequenceFlow_14huk2d_ve"
                 }
             ]
         },
-        "id": "Process_1skm9cz_ve"
+        "id": "Process_11sxj73_ve"
     },
     "collaboration": {}
 }
