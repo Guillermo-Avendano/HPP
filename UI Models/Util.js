@@ -1,5 +1,4 @@
 var util = {
-
     /** log: muestra en la consola el mensaje msg y objeto JSON como string si existe
      */
     log: function(msg, jsonObj) {
@@ -8,7 +7,6 @@ var util = {
         	else
         	    console.log(msg + " " + JSON.stringify(jsonObj)); 
     },
-
     /**
     * Comprueba la cadena si no está definida, es nula, no es un tipo de cadena, está vacía o con espacios.
     * @param str cadena a evaluar
