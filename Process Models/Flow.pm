@@ -172,7 +172,7 @@
             "sourceRef": "StartEvent_ep9qfu",
             "type": "bpmn:association"
         },
-        "id": "Process_brai0f",
+        "id": "Process_1ufgkir",
         "userTask": [
             {
                 "outgoing": "SequenceFlow_1b2uerj",
@@ -185,7 +185,7 @@
                         "actualData": "{\"name\":\"solicitanteROLE.role\",\"type\":14,\"parentName\":\"App Roles\",\"location\":\"/HPP/App Roles\",\"properties\":{},\"meta\":null,\"size\":0,\"errorMessage\":null,\"parentId\":null,\"projectId\":\"21efb2e9-d872-47bc-9b32-7702008aae8b\",\"referenceId\":\"b0d2383b-3334-457f-9ea9-bf6be998d603\",\"namespaceId\":null,\"content\":null,\"id\":\"3cd330ee-b13c-4d62-babd-2d6401e572b4\",\"createdOn\":\"2021-06-22T08:06:36.411-03:00\",\"modifiedOn\":\"2021-06-22T08:06:36.411-03:00\",\"modifiedBy\":null,\"createdBy\":null,\"rolePack\":null,\"buildProgress\":false,\"contentAsBytes\":null,\"contentAsString\":\"\"}"
                     },
                     "attribute-references": [],
-                    "email-body": "A%20ver",
+                    "email-body": "A%20ver!%0A%0A",
                     "fromUser": "cfg.username",
                     "form-variables": [],
                     "subject": "\"Contrato \" +  cont.contrato_id + \" de \" + cont.setor + \"/\" + cont.responsavel",
@@ -209,32 +209,11 @@
                         "actualData": "{\"name\":\"contratosROLE.role\",\"type\":14,\"parentName\":\"App Roles\",\"location\":\"/HPP/App Roles\",\"properties\":{},\"meta\":null,\"size\":0,\"errorMessage\":null,\"parentId\":null,\"projectId\":\"21efb2e9-d872-47bc-9b32-7702008aae8b\",\"referenceId\":\"70d5f7ce-761f-4f52-90a7-5991fb58a509\",\"namespaceId\":null,\"content\":null,\"id\":\"3d50ddb7-11e2-4496-abaa-7cb0f0f9e4bc\",\"createdOn\":\"2021-06-22T08:06:49.641-03:00\",\"modifiedOn\":\"2021-06-22T08:06:49.641-03:00\",\"modifiedBy\":null,\"createdBy\":null,\"rolePack\":null,\"buildProgress\":false,\"contentAsBytes\":null,\"contentAsString\":\"\"}"
                     },
                     "attribute-references": [],
-                    "email-body": "Empresa%20contratada:%20cont_contratada%0D%0AEmpresa%20contratante:%20cont_contratante%0D%0AObjetivo%20do%20contrato:%20cont_objetivo%0D%0AStatus:%20proc_status%0D%0ATempo%20total%20do%20processo:%20proc_total_duration",
+                    "email-body": "Empresa%20contratada:%20vcontratada%0D%0AEmpresa%20contratante:%20vcontratante%0D%0AObjetivo%20do%20contrato:%20vobjetivo%0D%0AStatus:%20vstatus%0D%0ATempo%20total%20do%20processo:%20vduration",
                     "fromUser": "cfg.username",
                     "form-variables": [],
                     "subject": "\"Contrato \" +  cont.contrato_id + \" de \" + cont.setor + \"/\" + cont.responsavel",
-                    "body-replace-strings": [
-                        {
-                            "string": "cont_contratada",
-                            "value": "cont.contratada"
-                        },
-                        {
-                            "string": "cont_contratatante",
-                            "value": "cont.contratante"
-                        },
-                        {
-                            "string": "cont_objetivo",
-                            "value": "cont.objetivo"
-                        },
-                        {
-                            "string": "proc_status",
-                            "value": "proc.status"
-                        },
-                        {
-                            "string": "proc_total_duration",
-                            "value": "proc.total_duration"
-                        }
-                    ],
+                    "body-replace-strings": [],
                     "notify-type": "Message Only",
                     "assignee-type": "Role"
                 },
@@ -254,29 +233,29 @@
                         "actualData": "{\"name\":\"juridicoROLE.role\",\"type\":14,\"parentName\":\"App Roles\",\"location\":\"/HPP/App Roles\",\"properties\":{},\"meta\":null,\"size\":0,\"errorMessage\":null,\"parentId\":null,\"projectId\":\"21efb2e9-d872-47bc-9b32-7702008aae8b\",\"referenceId\":\"9513cb7c-8d89-4e0e-ad40-1d0d2a8e4806\",\"namespaceId\":null,\"content\":null,\"id\":\"2e9ae59b-cf47-443a-b66b-2600f7a2c138\",\"createdOn\":\"2021-06-22T08:07:04.895-03:00\",\"modifiedOn\":\"2021-06-22T08:07:04.895-03:00\",\"modifiedBy\":null,\"createdBy\":null,\"rolePack\":null,\"buildProgress\":false,\"contentAsBytes\":null,\"contentAsString\":\"\"}"
                     },
                     "attribute-references": [],
-                    "email-body": "Empresa%20contratada:%20cont_contratada%0D%0AEmpresa%20contratante:%20cont_contratante%0D%0AObjetivo%20do%20contrato:%20cont_objetivo%0D%0AStatus:%20proc_status%0D%0ATempo%20total%20do%20processo:%20proc_total_duration",
+                    "email-body": "Empresa%20contratada:%20vcontratada%0D%0AEmpresa%20contratante:%20vcontratante%0D%0AObjetivo%20do%20contrato:%20vobjetivo%0D%0AStatus:%20vstatus%0D%0ATempo%20total%20do%20processo:%20vduration",
                     "fromUser": "cfg.username",
                     "form-variables": [],
                     "subject": "\"Contrato \" +  cont.contrato_id + \" de \" + cont.setor + \"/\" + cont.responsavel",
                     "body-replace-strings": [
                         {
-                            "string": "cont_contratada",
+                            "string": "vcontratada",
                             "value": "cont.contratada"
                         },
                         {
-                            "string": "cont_contratante",
+                            "string": "vcontratante",
                             "value": "cont.contratante"
                         },
                         {
-                            "string": "cont_objetivo",
+                            "string": "vobjetivo",
                             "value": "cont.objetivo"
                         },
                         {
-                            "string": "proc_status",
+                            "string": "vstatus",
                             "value": "proc.status"
                         },
                         {
-                            "string": "proc_total_duration",
+                            "string": "vduration",
                             "value": "proc.total_duration"
                         }
                     ],
@@ -291,7 +270,7 @@
         ]
     },
     "BPMNDiagram": {
-        "bpmnElement": "Process_brai0f",
+        "bpmnElement": "Process_1ufgkir",
         "BPMNPlane": {
             "BPMNShape": [
                 {
@@ -592,7 +571,7 @@
                 }
             ]
         },
-        "id": "Process_brai0f_ve"
+        "id": "Process_1ufgkir_ve"
     },
     "collaboration": {}
 }
