@@ -3,7 +3,7 @@
         "sequenceFlow": [
             {
                 "targetRef": "UserTask_oshb1v",
-                "businessProp": {"condition": "{target} == \"SOLICITANTE\""},
+                "businessProp": {"condition": "target == \"SOLICITANTE\""},
                 "name": "SOLICITANTE",
                 "id": "SequenceFlow_cix4z",
                 "sourceRef": "ExclusiveGateway_18hwx8j",
@@ -19,7 +19,7 @@
             },
             {
                 "targetRef": "ExclusiveGateway_q5qnaf",
-                "businessProp": {"condition": "{target} != \"SOLICITANTE\""},
+                "businessProp": {"condition": "target != \"SOLICITANTE\""},
                 "name": "NO",
                 "id": "SequenceFlow_22dbq7",
                 "sourceRef": "ExclusiveGateway_18hwx8j",
@@ -27,7 +27,7 @@
             },
             {
                 "targetRef": "UserTask_10hke6s",
-                "businessProp": {"condition": "{target} == \"CONTRATOS\""},
+                "businessProp": {"condition": "target == \"CONTRATOS\""},
                 "name": "CONTRATOS",
                 "id": "SequenceFlow_1qq4v6c",
                 "sourceRef": "ExclusiveGateway_q5qnaf",
@@ -35,7 +35,7 @@
             },
             {
                 "targetRef": "UserTask_3ewfp7",
-                "businessProp": {"condition": "{target} != \"CONTRATOS\""},
+                "businessProp": {"condition": "target != \"CONTRATOS\""},
                 "name": "JURIDICO",
                 "id": "SequenceFlow_1rxeoyt",
                 "sourceRef": "ExclusiveGateway_q5qnaf",
@@ -97,7 +97,7 @@
                 ],
                 "incoming": "SequenceFlow_14huk2d",
                 "businessProp": {},
-                "name": "Verifica Solicitante",
+                "name": "VerificaSolicitante",
                 "id": "ExclusiveGateway_18hwx8j",
                 "type": "bpmn:exclusiveGateway"
             },
@@ -108,7 +108,7 @@
                 ],
                 "incoming": "SequenceFlow_22dbq7",
                 "businessProp": {},
-                "name": "Verifica Contratos",
+                "name": "VerificaContratos",
                 "id": "ExclusiveGateway_q5qnaf",
                 "type": "bpmn:exclusiveGateway"
             }
@@ -172,7 +172,7 @@
             "sourceRef": "StartEvent_ep9qfu",
             "type": "bpmn:association"
         },
-        "id": "Process_11sxj73",
+        "id": "Process_brai0f",
         "userTask": [
             {
                 "outgoing": "SequenceFlow_1b2uerj",
@@ -185,44 +185,11 @@
                         "actualData": "{\"name\":\"solicitanteROLE.role\",\"type\":14,\"parentName\":\"App Roles\",\"location\":\"/HPP/App Roles\",\"properties\":{},\"meta\":null,\"size\":0,\"errorMessage\":null,\"parentId\":null,\"projectId\":\"21efb2e9-d872-47bc-9b32-7702008aae8b\",\"referenceId\":\"b0d2383b-3334-457f-9ea9-bf6be998d603\",\"namespaceId\":null,\"content\":null,\"id\":\"3cd330ee-b13c-4d62-babd-2d6401e572b4\",\"createdOn\":\"2021-06-22T08:06:36.411-03:00\",\"modifiedOn\":\"2021-06-22T08:06:36.411-03:00\",\"modifiedBy\":null,\"createdBy\":null,\"rolePack\":null,\"buildProgress\":false,\"contentAsBytes\":null,\"contentAsString\":\"\"}"
                     },
                     "attribute-references": [],
-                    "email-body": "Revise%20o%20contrato:%20cont_contrato_id%0D%0A%0D%0ASetor:%20cont_setor%0D%0AEmpresa%20contratada:%20cont_contratada%0D%0AEmpresa%20contratante:%20cont_contratante%0D%0AObjetivo%20do%20contrato:%20cont_objetivo%0D%0APedido%20por:%20cont_responsavel%0D%0AStatus:%20proc_status%0D%0ATempo%20total%20do%20processo:%20proc_total_duration",
+                    "email-body": "A%20ver",
                     "fromUser": "cfg.username",
                     "form-variables": [],
-                    "subject": "\"Contrato \" +  cont.contracto_id + \" de \" + target",
-                    "body-replace-strings": [
-                        {
-                            "string": "cont_contrato_id",
-                            "value": "cont.contrato_id"
-                        },
-                        {
-                            "string": "cont_setor",
-                            "value": "cont.setor"
-                        },
-                        {
-                            "string": "cont_contratada",
-                            "value": "cont.contratada"
-                        },
-                        {
-                            "string": "cont_contratante",
-                            "value": "cont.contratante"
-                        },
-                        {
-                            "string": "cont_objetivo",
-                            "value": "cont.objetivo"
-                        },
-                        {
-                            "string": "proc_status",
-                            "value": "proc.status"
-                        },
-                        {
-                            "string": "cont_responsavel",
-                            "value": "cont.responsavel"
-                        },
-                        {
-                            "string": "proc_total_duration",
-                            "value": "proc.total_duraton"
-                        }
-                    ],
+                    "subject": "\"Contrato \" +  cont.contrato_id + \" de \" + cont.setor + \"/\" + cont.responsavel",
+                    "body-replace-strings": [],
                     "notify-type": "Message Only",
                     "assignee-type": "Role"
                 },
@@ -242,19 +209,11 @@
                         "actualData": "{\"name\":\"contratosROLE.role\",\"type\":14,\"parentName\":\"App Roles\",\"location\":\"/HPP/App Roles\",\"properties\":{},\"meta\":null,\"size\":0,\"errorMessage\":null,\"parentId\":null,\"projectId\":\"21efb2e9-d872-47bc-9b32-7702008aae8b\",\"referenceId\":\"70d5f7ce-761f-4f52-90a7-5991fb58a509\",\"namespaceId\":null,\"content\":null,\"id\":\"3d50ddb7-11e2-4496-abaa-7cb0f0f9e4bc\",\"createdOn\":\"2021-06-22T08:06:49.641-03:00\",\"modifiedOn\":\"2021-06-22T08:06:49.641-03:00\",\"modifiedBy\":null,\"createdBy\":null,\"rolePack\":null,\"buildProgress\":false,\"contentAsBytes\":null,\"contentAsString\":\"\"}"
                     },
                     "attribute-references": [],
-                    "email-body": "Revise%20o%20contrato:%20cont_contrato_id%0D%0A%0D%0ASetor:%20cont_setor%0D%0AEmpresa%20contratada:%20cont_contratada%0D%0AEmpresa%20contratante:%20cont_contratante%0D%0AObjetivo%20do%20contrato:%20cont_objetivo%0D%0APedido%20por:%20cont_responsavel%0D%0AStatus:%20proc_status%0D%0ATempo%20total%20do%20processo:%20proc_total_duration",
+                    "email-body": "Empresa%20contratada:%20cont_contratada%0D%0AEmpresa%20contratante:%20cont_contratante%0D%0AObjetivo%20do%20contrato:%20cont_objetivo%0D%0AStatus:%20proc_status%0D%0ATempo%20total%20do%20processo:%20proc_total_duration",
                     "fromUser": "cfg.username",
                     "form-variables": [],
-                    "subject": "\"Contrato \" +  cont.contracto_id + \" de \" + target",
+                    "subject": "\"Contrato \" +  cont.contrato_id + \" de \" + cont.setor + \"/\" + cont.responsavel",
                     "body-replace-strings": [
-                        {
-                            "string": "cont_contrato_id",
-                            "value": "cont.contrato_id"
-                        },
-                        {
-                            "string": "cont_setor",
-                            "value": "cont.setor"
-                        },
                         {
                             "string": "cont_contratada",
                             "value": "cont.contratada"
@@ -270,10 +229,6 @@
                         {
                             "string": "proc_status",
                             "value": "proc.status"
-                        },
-                        {
-                            "string": "cont_responsavel",
-                            "value": "cont.responsavel"
                         },
                         {
                             "string": "proc_total_duration",
@@ -299,19 +254,11 @@
                         "actualData": "{\"name\":\"juridicoROLE.role\",\"type\":14,\"parentName\":\"App Roles\",\"location\":\"/HPP/App Roles\",\"properties\":{},\"meta\":null,\"size\":0,\"errorMessage\":null,\"parentId\":null,\"projectId\":\"21efb2e9-d872-47bc-9b32-7702008aae8b\",\"referenceId\":\"9513cb7c-8d89-4e0e-ad40-1d0d2a8e4806\",\"namespaceId\":null,\"content\":null,\"id\":\"2e9ae59b-cf47-443a-b66b-2600f7a2c138\",\"createdOn\":\"2021-06-22T08:07:04.895-03:00\",\"modifiedOn\":\"2021-06-22T08:07:04.895-03:00\",\"modifiedBy\":null,\"createdBy\":null,\"rolePack\":null,\"buildProgress\":false,\"contentAsBytes\":null,\"contentAsString\":\"\"}"
                     },
                     "attribute-references": [],
-                    "email-body": "Revise%20o%20contrato:%20cont_contrato_id%0D%0A%0D%0ASetor:%20cont_setor%0D%0AEmpresa%20contratada:%20cont_contratada%0D%0AEmpresa%20contratante:%20cont_contratante%0D%0AObjetivo%20do%20contrato:%20cont_objetivo%0D%0APedido%20por:%20cont_responsavel%0D%0AStatus:%20proc_status%0D%0ATempo%20total%20do%20processo:%20proc_total_duration",
+                    "email-body": "Empresa%20contratada:%20cont_contratada%0D%0AEmpresa%20contratante:%20cont_contratante%0D%0AObjetivo%20do%20contrato:%20cont_objetivo%0D%0AStatus:%20proc_status%0D%0ATempo%20total%20do%20processo:%20proc_total_duration",
                     "fromUser": "cfg.username",
                     "form-variables": [],
-                    "subject": "\"Contrato \" +  cont.contracto_id + \" de \" + target",
+                    "subject": "\"Contrato \" +  cont.contrato_id + \" de \" + cont.setor + \"/\" + cont.responsavel",
                     "body-replace-strings": [
-                        {
-                            "string": "cont_contrato_id",
-                            "value": "cont.contrato_id"
-                        },
-                        {
-                            "string": "cont_setor",
-                            "value": "cont.setor"
-                        },
                         {
                             "string": "cont_contratada",
                             "value": "cont.contratada"
@@ -323,10 +270,6 @@
                         {
                             "string": "cont_objetivo",
                             "value": "cont.objetivo"
-                        },
-                        {
-                            "string": "cont_responsavel",
-                            "value": "cont.responsavel"
                         },
                         {
                             "string": "proc_status",
@@ -348,7 +291,7 @@
         ]
     },
     "BPMNDiagram": {
-        "bpmnElement": "Process_11sxj73",
+        "bpmnElement": "Process_brai0f",
         "BPMNPlane": {
             "BPMNShape": [
                 {
@@ -393,7 +336,7 @@
                         "cx": 355.8203125,
                         "cy": 167,
                         "x": 332,
-                        "width": 101.109375,
+                        "width": 98.140625,
                         "y": 153.5,
                         "height": 73
                     },
@@ -405,11 +348,23 @@
                         "cx": 355.5,
                         "cy": 374.5,
                         "x": 332,
-                        "width": 96.53125,
+                        "width": 93.5625,
                         "y": 361,
                         "height": 73
                     },
                     "id": "ExclusiveGateway_q5qnaf_ve"
+                },
+                {
+                    "bpmnElement": "TextAnnotation_1vkphhm",
+                    "Bounds": {
+                        "cx": 84,
+                        "cy": 93.6953125,
+                        "x": 34,
+                        "width": 100,
+                        "y": 76,
+                        "height": 36.609375
+                    },
+                    "id": "TextAnnotation_1vkphhm_ve"
                 },
                 {
                     "bpmnElement": "StartEvent_ep9qfu",
@@ -458,18 +413,6 @@
                         "height": 76.33000183105469
                     },
                     "id": "UserTask_3ewfp7_ve"
-                },
-                {
-                    "bpmnElement": "TextAnnotation_1vkphhm",
-                    "Bounds": {
-                        "cx": 84,
-                        "cy": 94,
-                        "x": 34,
-                        "width": 100,
-                        "y": 76,
-                        "height": 36
-                    },
-                    "id": "TextAnnotation_1vkphhm_ve"
                 }
             ],
             "BPMNEdge": [
@@ -614,20 +557,6 @@
                 {
                     "waypoint": [
                         {
-                            "x": "84",
-                            "y": "161.5"
-                        },
-                        {
-                            "x": "84",
-                            "y": "106"
-                        }
-                    ],
-                    "bpmnElement": "Association_cmtmyp",
-                    "id": "Association_cmtmyp_ve"
-                },
-                {
-                    "waypoint": [
-                        {
                             "x": "102",
                             "y": "179.5"
                         },
@@ -646,10 +575,24 @@
                     ],
                     "bpmnElement": "SequenceFlow_14huk2d",
                     "id": "SequenceFlow_14huk2d_ve"
+                },
+                {
+                    "waypoint": [
+                        {
+                            "x": "84",
+                            "y": "161.5"
+                        },
+                        {
+                            "x": "84",
+                            "y": "112"
+                        }
+                    ],
+                    "bpmnElement": "Association_cmtmyp",
+                    "id": "Association_cmtmyp_ve"
                 }
             ]
         },
-        "id": "Process_11sxj73_ve"
+        "id": "Process_brai0f_ve"
     },
     "collaboration": {}
 }

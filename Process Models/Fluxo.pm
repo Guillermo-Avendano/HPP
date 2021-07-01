@@ -2,261 +2,287 @@
     "process": {
         "sequenceFlow": [
             {
-                "targetRef": "ExclusiveGateway_ii7wwz",
+                "targetRef": "ExclusiveGateway_xzq160",
                 "businessProp": {},
                 "name": "",
-                "id": "SequenceFlow_1a7nlbo",
-                "sourceRef": "StartEvent_1vil7bl",
+                "id": "SequenceFlow_r1byqb",
+                "sourceRef": "StartEvent_1p1o0i3",
                 "type": "bpmn:sequenceFlow"
             },
             {
-                "targetRef": "UserTask_14in0bl",
-                "businessProp": {"condition": "{target} == \"SOLICITANTE\""},
-                "name": "SOLICITANTE",
-                "id": "SequenceFlow_27tbgs",
-                "sourceRef": "ExclusiveGateway_ii7wwz",
+                "targetRef": "ScriptTask_ei79yf",
+                "businessProp": {"condition": "{target} == \"OK\""},
+                "name": "SI",
+                "id": "SequenceFlow_19aqz5p",
+                "sourceRef": "ExclusiveGateway_xzq160",
                 "type": "bpmn:sequenceFlow"
             },
             {
-                "targetRef": "EndEvent_1p7gkga",
-                "businessProp": {},
-                "name": "",
-                "id": "SequenceFlow_19fdkug",
-                "sourceRef": "UserTask_14in0bl",
-                "type": "bpmn:sequenceFlow"
-            },
-            {
-                "targetRef": "EndEvent_spet5s",
-                "businessProp": {"condition": "{target} != \"SOLICITANTE\""},
+                "targetRef": "ScriptTask_4t6b48",
+                "businessProp": {"condition": "{target} != \"OK\""},
                 "name": "NO",
-                "id": "SequenceFlow_xojf30",
-                "sourceRef": "ExclusiveGateway_ii7wwz",
+                "id": "SequenceFlow_1szx0l0",
+                "sourceRef": "ExclusiveGateway_xzq160",
+                "type": "bpmn:sequenceFlow"
+            },
+            {
+                "targetRef": "EndEvent_1oyvn0v",
+                "businessProp": {},
+                "name": "",
+                "id": "SequenceFlow_txqk5w",
+                "sourceRef": "ScriptTask_4t6b48",
+                "type": "bpmn:sequenceFlow"
+            },
+            {
+                "targetRef": "EndEvent_1oyvn0v",
+                "businessProp": {},
+                "name": "",
+                "id": "SequenceFlow_r4kuq2",
+                "sourceRef": "ScriptTask_ei79yf",
                 "type": "bpmn:sequenceFlow"
             }
         ],
-        "endEvent": [
+        "scriptTask": [
             {
-                "incoming": "SequenceFlow_19fdkug",
-                "businessProp": {},
-                "name": "End",
-                "id": "EndEvent_1p7gkga",
-                "type": "bpmn:endEvent"
+                "outgoing": "SequenceFlow_r4kuq2",
+                "incoming": "SequenceFlow_19aqz5p",
+                "businessProp": {"exec-script": "var a = 1;"},
+                "name": "Val2",
+                "id": "ScriptTask_ei79yf",
+                "type": "bpmn:scriptTask",
+                "events": []
             },
             {
-                "incoming": "SequenceFlow_xojf30",
-                "businessProp": {},
-                "name": "End",
-                "id": "EndEvent_spet5s",
-                "type": "bpmn:endEvent"
+                "outgoing": "SequenceFlow_txqk5w",
+                "incoming": "SequenceFlow_1szx0l0",
+                "businessProp": {"exec-script": "var a = 1;"},
+                "name": "Val1",
+                "id": "ScriptTask_4t6b48",
+                "type": "bpmn:scriptTask",
+                "events": []
             }
         ],
+        "endEvent": {
+            "incoming": [
+                "SequenceFlow_txqk5w",
+                "SequenceFlow_r4kuq2"
+            ],
+            "businessProp": {},
+            "name": "End",
+            "id": "EndEvent_1oyvn0v",
+            "type": "bpmn:endEvent"
+        },
         "exclusiveGateway": {
             "outgoing": [
-                "SequenceFlow_27tbgs",
-                "SequenceFlow_xojf30"
+                "SequenceFlow_19aqz5p",
+                "SequenceFlow_1szx0l0"
             ],
-            "incoming": "SequenceFlow_1a7nlbo",
+            "incoming": "SequenceFlow_r1byqb",
             "businessProp": {},
-            "name": "Verifica Solicitante",
-            "id": "ExclusiveGateway_ii7wwz",
+            "name": "Verifica",
+            "id": "ExclusiveGateway_xzq160",
             "type": "bpmn:exclusiveGateway"
         },
         "startEvent": {
-            "outgoing": "SequenceFlow_1a7nlbo",
+            "outgoing": "SequenceFlow_r1byqb",
             "businessProp": {
                 "defaultPriority": "Low",
                 "due-date": false,
                 "due-date-type": "Custom",
                 "priority": false,
-                "start-payload-variables": []
+                "start-payload-variables": [{
+                    "ref": "target",
+                    "regex": "",
+                    "type": "",
+                    "mandatory": true,
+                    "errormsg": ""
+                }]
             },
             "name": "Start",
-            "id": "StartEvent_1vil7bl",
+            "id": "StartEvent_1p1o0i3",
             "type": "bpmn:startEvent"
         },
-        "id": "Process_gywbry",
-        "userTask": {
-            "outgoing": "SequenceFlow_19fdkug",
-            "incoming": "SequenceFlow_27tbgs",
-            "businessProp": {
-                "email-type": "text/html",
-                "assignee-role": {
-                    "roleMeta": "",
-                    "roleName": "solicitanteROLE",
-                    "actualData": "{\"name\":\"solicitanteROLE.role\",\"type\":14,\"parentName\":\"App Roles\",\"location\":\"/HPP/App Roles\",\"properties\":{},\"meta\":null,\"size\":0,\"errorMessage\":null,\"parentId\":null,\"projectId\":\"21efb2e9-d872-47bc-9b32-7702008aae8b\",\"referenceId\":\"b0d2383b-3334-457f-9ea9-bf6be998d603\",\"namespaceId\":null,\"content\":null,\"id\":\"3cd330ee-b13c-4d62-babd-2d6401e572b4\",\"createdOn\":\"2021-06-22T08:06:36.411-03:00\",\"modifiedOn\":\"2021-06-22T08:06:36.411-03:00\",\"modifiedBy\":null,\"createdBy\":null,\"rolePack\":null,\"buildProgress\":false,\"contentAsBytes\":null,\"contentAsString\":\"\"}"
-                },
-                "attribute-references": [],
-                "email-body": "Revise%20o%20contrato%20cont_contrato_id,%0D%0A%0D%0ASetor%20cont_setor%0D%0AEmpresa%20contratada%20cont_contratada%0D%0AEmpresa%20contratante%20cont_contratante%0D%0AObjetivo%20do%20contrato%20cont_objetivo%0D%0APedido%20por%20cont_responsavel%0D%0AStatus%20cont_status%0D%0ATempo%20Total%20od%20processo:%20proc_total_duration%0D%0A",
-                "fromUser": "cfg.username",
-                "form-variables": [],
-                "subject": "contrato cont.contrato_id setor cont.setor",
-                "body-replace-strings": [],
-                "notify-type": "Message Only",
-                "assignee-type": "Role"
-            },
-            "name": "A Solicitante",
-            "id": "UserTask_14in0bl",
-            "type": "bpmn:userTask",
-            "events": []
-        }
+        "id": "Process_1789oa9"
     },
     "BPMNDiagram": {
-        "bpmnElement": "Process_gywbry",
+        "bpmnElement": "Process_1789oa9",
         "BPMNPlane": {
             "BPMNShape": [
                 {
-                    "bpmnElement": "StartEvent_1vil7bl",
+                    "bpmnElement": "StartEvent_1p1o0i3",
                     "Bounds": {
-                        "cx": 219,
-                        "cy": 227.5,
-                        "x": 201,
+                        "cx": 205,
+                        "cy": 195.5,
+                        "x": 187,
                         "width": 36,
-                        "y": 198,
+                        "y": 166,
                         "height": 59
                     },
-                    "id": "StartEvent_1vil7bl_ve"
+                    "id": "StartEvent_1p1o0i3_ve"
                 },
                 {
-                    "bpmnElement": "ExclusiveGateway_ii7wwz",
+                    "bpmnElement": "ExclusiveGateway_xzq160",
                     "Bounds": {
-                        "cx": 450.8203125,
-                        "cy": 203,
-                        "x": 427,
-                        "width": 101.109375,
-                        "y": 189.5,
+                        "cx": 438,
+                        "cy": 171,
+                        "x": 413,
+                        "width": 50,
+                        "y": 157.5,
                         "height": 73
                     },
-                    "id": "ExclusiveGateway_ii7wwz_ve"
+                    "id": "ExclusiveGateway_xzq160_ve"
                 },
                 {
-                    "bpmnElement": "EndEvent_1p7gkga",
+                    "bpmnElement": "ScriptTask_ei79yf",
                     "Bounds": {
-                        "cx": 954,
-                        "cy": 226,
-                        "x": 936,
-                        "width": 36,
-                        "y": 196.5,
-                        "height": 59
-                    },
-                    "id": "EndEvent_1p7gkga_ve"
-                },
-                {
-                    "bpmnElement": "EndEvent_spet5s",
-                    "Bounds": {
-                        "cx": 452,
-                        "cy": 368.5,
-                        "x": 434,
-                        "width": 36,
-                        "y": 339,
-                        "height": 59
-                    },
-                    "id": "EndEvent_spet5s_ve"
-                },
-                {
-                    "bpmnElement": "UserTask_14in0bl",
-                    "Bounds": {
-                        "cx": 718,
-                        "cy": 214.50000762939453,
-                        "x": 641.0199966430664,
+                        "cx": 728,
+                        "cy": 182.50000762939453,
+                        "x": 651.0199966430664,
                         "width": 153.9600067138672,
-                        "y": 176.3350067138672,
+                        "y": 144.3350067138672,
                         "height": 76.33000183105469
                     },
-                    "id": "UserTask_14in0bl_ve"
+                    "id": "ScriptTask_ei79yf_ve"
+                },
+                {
+                    "bpmnElement": "ScriptTask_4t6b48",
+                    "Bounds": {
+                        "cx": 438,
+                        "cy": 426.99999237060547,
+                        "x": 361.0199966430664,
+                        "width": 153.9600067138672,
+                        "y": 388.8349914550781,
+                        "height": 76.33000183105469
+                    },
+                    "id": "ScriptTask_4t6b48_ve"
+                },
+                {
+                    "bpmnElement": "EndEvent_1oyvn0v",
+                    "Bounds": {
+                        "cx": 752,
+                        "cy": 438.5,
+                        "x": 734,
+                        "width": 36,
+                        "y": 409,
+                        "height": 59
+                    },
+                    "id": "EndEvent_1oyvn0v_ve"
                 }
             ],
             "BPMNEdge": [
                 {
                     "waypoint": [
                         {
-                            "x": "237",
-                            "y": "216"
+                            "x": "223",
+                            "y": "184"
                         },
                         {
-                            "x": "332",
-                            "y": "216"
+                            "x": "318",
+                            "y": "184"
                         },
                         {
-                            "x": "332",
-                            "y": "214.5"
+                            "x": "318",
+                            "y": "182.5"
                         },
                         {
-                            "x": "427",
-                            "y": "214.5"
+                            "x": "413",
+                            "y": "182.5"
                         }
                     ],
-                    "bpmnElement": "SequenceFlow_1a7nlbo",
-                    "id": "SequenceFlow_1a7nlbo_ve"
+                    "bpmnElement": "SequenceFlow_r1byqb",
+                    "id": "SequenceFlow_r1byqb_ve"
                 },
                 {
                     "waypoint": [
                         {
-                            "x": "477",
-                            "y": "214.5"
+                            "x": "463",
+                            "y": "182.5"
                         },
                         {
-                            "x": "559.0099983215332",
-                            "y": "214.5"
+                            "x": "557.0099983215332",
+                            "y": "182.5"
                         },
                         {
-                            "x": "559.0099983215332",
-                            "y": "214.49999908447265"
+                            "x": "557.0099983215332",
+                            "y": "182.49999908447265"
                         },
                         {
-                            "x": "641.0199966430664",
-                            "y": "214.49999908447265"
+                            "x": "651.0199966430664",
+                            "y": "182.49999908447265"
                         }
                     ],
-                    "bpmnElement": "SequenceFlow_27tbgs",
-                    "id": "SequenceFlow_27tbgs_ve",
+                    "bpmnElement": "SequenceFlow_19aqz5p",
+                    "id": "SequenceFlow_19aqz5p_ve",
                     "BPMNLabel": {"Bounds": {
-                        "cx": 583.0390625,
-                        "cy": 191,
-                        "x": 539,
-                        "width": 88.078125,
-                        "y": 179,
-                        "height": 24
-                    }}
-                },
-                {
-                    "waypoint": [
-                        {
-                            "x": "794.98001953125",
-                            "y": "214.50000671386718"
-                        },
-                        {
-                            "x": "936",
-                            "y": "214.5"
-                        }
-                    ],
-                    "bpmnElement": "SequenceFlow_19fdkug",
-                    "id": "SequenceFlow_19fdkug_ve"
-                },
-                {
-                    "waypoint": [
-                        {
-                            "x": "452",
-                            "y": "239.5"
-                        },
-                        {
-                            "x": "452",
-                            "y": "339"
-                        }
-                    ],
-                    "bpmnElement": "SequenceFlow_xojf30",
-                    "id": "SequenceFlow_xojf30_ve",
-                    "BPMNLabel": {"Bounds": {
-                        "cx": 472,
-                        "cy": 266,
-                        "x": 432,
+                        "cx": 577,
+                        "cy": 159,
+                        "x": 537,
                         "width": 80,
-                        "y": 254,
+                        "y": 147,
                         "height": 24
                     }}
+                },
+                {
+                    "waypoint": [
+                        {
+                            "x": "438",
+                            "y": "207.5"
+                        },
+                        {
+                            "x": "437.9999966430664",
+                            "y": "388.83499908447266"
+                        }
+                    ],
+                    "bpmnElement": "SequenceFlow_1szx0l0",
+                    "id": "SequenceFlow_1szx0l0_ve",
+                    "BPMNLabel": {"Bounds": {
+                        "cx": 458,
+                        "cy": 275,
+                        "x": 418,
+                        "width": 80,
+                        "y": 263,
+                        "height": 24
+                    }}
+                },
+                {
+                    "waypoint": [
+                        {
+                            "x": "514.9799966430664",
+                            "y": "426.99999145507815"
+                        },
+                        {
+                            "x": "734",
+                            "y": "426.99999237060547"
+                        }
+                    ],
+                    "bpmnElement": "SequenceFlow_txqk5w",
+                    "id": "SequenceFlow_txqk5w_ve"
+                },
+                {
+                    "waypoint": [
+                        {
+                            "x": "727.9999966430664",
+                            "y": "220.66500671386717"
+                        },
+                        {
+                            "x": "727.9999966430664",
+                            "y": "314.83250335693356"
+                        },
+                        {
+                            "x": "752",
+                            "y": "314.83250335693356"
+                        },
+                        {
+                            "x": "752",
+                            "y": "409"
+                        }
+                    ],
+                    "bpmnElement": "SequenceFlow_r4kuq2",
+                    "id": "SequenceFlow_r4kuq2_ve"
                 }
             ]
         },
-        "id": "Process_gywbry_ve"
+        "id": "Process_1789oa9_ve"
     },
     "collaboration": {}
 }
