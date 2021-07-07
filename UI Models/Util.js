@@ -28,12 +28,8 @@ var util = {
     copyJson: function(source,target) {
       let targetArr = JSON.parse(JSON.stringify(target));
       for (var key in source) {
-          try {
-              targetArr[key] = source[key];
-              
-          } catch(e) {
-        	      console.log("util.copyJson: -> " + e); }
-      }
+          try      { targetArr[key] = source[key]; } 
+          catch(e) { console.log("util.copyJson: -> " + e); } }
       return targetArr;
     },
 
@@ -76,9 +72,7 @@ var util = {
             		found = true;  
             		break;
         	        } 
-        	  } catch(e) {
-        	      console.log("util.arrFind: -> " + e);
-        	  }
+        	  } catch(e) { console.log("util.arrFind: -> " + e); }
     	  }
     
     	if (found) 
@@ -102,7 +96,6 @@ var util = {
     arrAdd: function(arrJsonSource, sourceJson, key) {
     	var i;
     	var found = false;
-    	var added = false;
     	let sourceArr = JSON.parse(JSON.stringify(arrJsonSource));
     	
     	for (i = 0; i < sourceArr.length; i++) {
@@ -111,15 +104,11 @@ var util = {
             		found = true;  
             		break;
             	  }
-    	      } catch(e) {
-        	      console.log("util.arrAdd: -> " + e); }
-    	}
+    	      } catch(e) { console.log("util.arrAdd: -> " + e); } }
     
-    	if (!found) {
+    	if (!found) 
     	   sourceArr.push(sourceJson);
-    	   added = true;
-    	   }
-    
+
      return sourceArr;
     },
     
@@ -137,7 +126,6 @@ var util = {
     arrUpdate: function(arrJsonSource,sourceJson,key) {
     var i;
     var found = false;
-    var added = false;
     
     let sourceArr = JSON.parse(JSON.stringify(arrJsonSource));
     
@@ -147,13 +135,10 @@ var util = {
                 found = true;  
                 break;
               }
-        } catch(e) {
-        	      console.log("util.arrUpdate: -> " + e); }
-    }
+        } catch(e) { console.log("util.arrUpdate: -> " + e); }  }
     
-    if (found) {
+    if (found) 
         sourceArr[i] = JSON.parse(JSON.stringify(sourceJson));
-     }
      
      return sourceArr;
     },
@@ -171,26 +156,21 @@ var util = {
     arrRemove: function(arrJsonSource,sourceJson,key) {
     	var i;
     	var found = false;
-    	var added = false;
-    
+    	
     	let sourceArr = JSON.parse(JSON.stringify(arrJsonSource));
     
     	for (i = 0; i < sourceArr.length; i++) {
-    	    try {
-            	  if (sourceArr[i][key] == sourceJson[key]) {
-            		found = true;  
-            		break;
+    	    try { if (sourceArr[i][key] == sourceJson[key]) {
+            	 	 found = true;  
+            		 break;
             	  }
-        	} catch(e) {
-        	      console.log("util.arrRemove: -> " + e); }
+        	} catch(e) { console.log("util.arrRemove: -> " + e); } 	
     	}
+    	
     	if (found) { 
-        
     		if (sourceArr.length == 1 )  {
     		   // Tiene una fila, la encontro entonces inicializo el Array a vacio     
     		   while (sourceArr.length > 0) { sourceArr.pop();}
-    		   
-    		   // Esto es un ERROR! pero SI el remove no hace un refresh, se puede crear una fila vacia
     		   sourceArr = [{}];
     		  }
     		else {   
@@ -221,18 +201,34 @@ var util = {
 	*/
     arrGetJsonArr: function(arrJsonSource, key) {
     	var i;
-    	var found = false;
     	var jsonArrReturn = [];
     	let sourceArr = arrJsonSource;
     	
     	for (i = 0; i < sourceArr.length; i++) {
-    	    try{
-			    jsonArrReturn.push(JSON.parse("{ \"" + key + "\" : \"" + sourceArr[i][key] + "\" }"));
-        	  } catch(e) {
-        	      console.log("util.arrGetJsonArr: -> " + e);
-        	  }
+    	    try      { jsonArrReturn.push(JSON.parse("{ \"" + key + "\" : \"" + sourceArr[i][key] + "\" }")); } 
+    	    catch(e) { console.log("util.arrGetJsonArr: -> " + e);   }
     	  }
     
         return jsonArrReturn;
+    },
+    /** arrGetValArr: devuelve un array de valores, en base al atributo seleccionado (key) del array de JSON
+    * Parametros
+    * @param   arrJsonSource: es el array a procesar, por ejemplo [{ a : "11", b : "12"}, 
+    *                                                              { a : "21", b : "22"}, 
+    *           												   { a : "31", b : "32"}]
+    * @param  key: "a"  es el nombre de la propiedad del objeto JSON que sera usada para crear el array JSON de salida
+    * @return: array JSON encontrato con el atributo key
+    *           [11, 21, 31]
+	*/
+    arrGetValArr: function(arrJsonSource, key) {
+    	var i;
+    	var arrReturn = [];
+    	let sourceArr = arrJsonSource;
+    	
+    	for (i = 0; i < sourceArr.length; i++) {
+    	    try      { arrReturn.push(sourceArr[i][key]);          } 
+        	catch(e) { console.log("util.arrGetValArr: -> " + e); }
+    	  }
+        return arrReturn;
     }
 };
