@@ -12,7 +12,7 @@ class DashJS {
   }
 //
 
-    CrearDashboard(dash_id, dash_header, dash_labels, dash_data, dash_type) { 
+    CrearDashPie(dash_id, dash_header, dash_labels, dash_data) { 
         
     var dash_color   = [];
 
@@ -25,34 +25,145 @@ class DashJS {
     let ctx = element['getContext']('2d');
     
     let myChart = new Chart(ctx, {
+                    	type: 'pie',
+                    	data: {
+                    
+                    		labels: dash_labels,
+                    
+                    		datasets: [{
+                    
+                    			label: dash_header,
+                    			data: dash_data,
+                    			backgroundColor: dash_color,
+                    			borderColor: dash_color,
+                    			borderWidth: 2
+                    		}]
+                    	},
+                    	options: {  responsive: true,
+                                    plugins: {
+                                      legend: {
+                                        position: 'top',
+                                      },
+                            	       title: {
+                                        display: true,
+                                        text: dash_header
+                                        }
+                                    }
+                    	        }
+                        }  );
+    }
     
-    	type: dash_type,
+     CrearDashDona(dash_id, dash_header, dash_labels, dash_data) { 
+        
+    var dash_color   = [];
+
+    for (var i=0; i < dash_data.length; i++) {
+        dash_color.push (this.colorRGB());
+    }    
     
-    	data: {
+    let element = document.getElementById(dash_id);
     
-    		labels: dash_labels,
+    let ctx = element['getContext']('2d');
     
-    		datasets: [{
+    let myChart = new Chart(ctx, {
+                    	type: 'doughnut',
+                    	data: {
+                    
+                    		labels: dash_labels,
+                    
+                    		datasets: [{
+                    
+                    			label: dash_header,
+                    			data: dash_data,
+                    			backgroundColor: dash_color,
+                    			borderColor: dash_color,
+                    			borderWidth: 2
+                    		}]
+                    	},
+                    	options: {  responsive: true,
+                                    plugins: {
+                                      legend: {
+                                        position: 'top',
+                                      },
+                            	       title: {
+                                        display: true,
+                                        text: dash_header
+                                        }
+                                    }
+                    	        }
+                        }  );
+    }
     
-    			label: dash_header,
-    			data: dash_data,
-    			backgroundColor: dash_color,
-    			borderColor: dash_color,
-    			borderWidth: 1
-    		}]
-    	},
-    	options: {
-    		scales: {
-    			yAxes: [{
-    				ticks: {
-    					beginAtZero: true
-    				}
-    			}]
-    		}
-    	}
-     }
     
-    );
+    CrearDashBar(dash_id, dash_header, dash_labels, dash_data) { 
+        
+    var dash_color   = [];
+
+    for (var i=0; i < dash_data.length; i++) {
+        dash_color.push (this.colorRGB());
+    }    
+    
+    let element = document.getElementById(dash_id);
+    
+    let ctx = element.getContext('2d');
+    
+    let myChart = new Chart(ctx, {
+                	type: 'bar',
+                	data: {
+                
+                		labels: dash_labels,
+                
+                		datasets: [{
+                
+                			label: dash_header,
+                			data: dash_data,
+                			backgroundColor: dash_color,
+                			borderColor: dash_color,
+                			borderWidth: 2
+                		}]
+                	},
+                	options: {
+                		scales: {
+                			yAxes: [{
+                				ticks: {
+                					beginAtZero: true
+                				}
+                			}]
+                		}
+                	}
+                 } );
+    }
+    
+    
+     CrearDashLine(dash_id, dash_header, dash_labels, dash_data) { 
+        
+    var dash_color   = [];
+
+    for (var i=0; i < dash_data.length; i++) {
+        dash_color.push (this.colorRGB());
+    }    
+    
+    let element = document.getElementById(dash_id);
+    
+    let ctx = element.getContext('2d');
+    
+    let myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: dash_labels,
+                        datasets: [{
+                                data: dash_data,
+                                label: dash_header,
+                                borderColor: "#3e95cd",
+                                fill: false
+                                }]
+                                },
+                        options: {
+                        title: {
+                                display: true,
+                                text: dash_header
+                        }
+                    }  });
     }
 
 }
