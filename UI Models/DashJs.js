@@ -12,7 +12,45 @@ class DashJS {
   }
 //
 
-    CrearDashPie(dash_id, dash_header, dash_labels, dash_data) { 
+dashPolar(dash_id, dash_header, dash_lbl, dash_labels, dash_data) { 
+        
+    var dash_color   = [];
+
+    for (var i=0; i < dash_data.length; i++) {
+        dash_color.push (this.colorRGB());
+    }    
+    
+    let element = document.getElementById(dash_id);
+    
+    let ctx = element['getContext']('2d');
+    
+    let myChart = new Chart(ctx, {
+                    	type: 'polarArea',
+                    	data: {
+                    		labels: dash_labels,
+                    		datasets: [{
+                    			label: dash_lbl,
+                    			data: dash_data,
+                    			backgroundColor: dash_color,
+                    		}]
+                    	},
+                    	options: {  responsive: true,
+                                    plugins: {
+                                      legend: {
+                                        position: 'top',
+                                      },
+                            	       title: {
+                                        display: true,
+                                        text: dash_header
+                                        }
+                                    }
+                    	        }
+                        }  );
+    }
+
+///
+
+dashPie(dash_id, dash_header, dash_lbl, dash_labels, dash_data) { 
         
     var dash_color   = [];
 
@@ -32,7 +70,7 @@ class DashJS {
                     
                     		datasets: [{
                     
-                    			label: dash_header,
+                    			label: dash_lbl,
                     			data: dash_data,
                     			backgroundColor: dash_color,
                     			borderColor: dash_color,
@@ -53,7 +91,7 @@ class DashJS {
                         }  );
     }
     
-     CrearDashDona(dash_id, dash_header, dash_labels, dash_data) { 
+dashDona(dash_id, dash_header, dash_labels, dash_data) { 
         
     var dash_color   = [];
 
@@ -95,7 +133,7 @@ class DashJS {
     }
     
     
-    CrearDashBar(dash_id, dash_header, dash_labels, dash_data) { 
+dashBar(dash_id, dash_header, dash_labels, dash_data) { 
         
     var dash_color   = [];
 
@@ -135,7 +173,7 @@ class DashJS {
     }
     
     
-     CrearDashLine(dash_id, dash_header, dash_labels, dash_data) { 
+dashLine(dash_id, dash_header, dash_labels, dash_data) { 
         
     var dash_color   = [];
 
