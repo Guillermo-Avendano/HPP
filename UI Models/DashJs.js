@@ -22,7 +22,7 @@ dashPolar(dash_id, dash_header, dash_lbl, dash_labels, dash_data) {
     
     let element = document.getElementById(dash_id);
     
-    let ctx = element['getContext']('2d');
+    let ctx = element.getContext('2d');
     
     let myChart = new Chart(ctx, {
                     	type: 'polarArea',
@@ -60,7 +60,7 @@ dashPie(dash_id, dash_header, dash_lbl, dash_labels, dash_data) {
     
     let element = document.getElementById(dash_id);
     
-    let ctx = element['getContext']('2d');
+    let ctx = element.getContext('2d');
     
     let myChart = new Chart(ctx, {
                     	type: 'pie',
@@ -91,7 +91,7 @@ dashPie(dash_id, dash_header, dash_lbl, dash_labels, dash_data) {
                         }  );
     }
     
-dashDona(dash_id, dash_header, dash_labels, dash_data) { 
+dashDona(dash_id, dash_header, dash_lbl, dash_labels, dash_data) { 
         
     var dash_color   = [];
 
@@ -101,7 +101,7 @@ dashDona(dash_id, dash_header, dash_labels, dash_data) {
     
     let element = document.getElementById(dash_id);
     
-    let ctx = element['getContext']('2d');
+    let ctx = element.getContext('2d');
     
     let myChart = new Chart(ctx, {
                     	type: 'doughnut',
@@ -111,7 +111,7 @@ dashDona(dash_id, dash_header, dash_labels, dash_data) {
                     
                     		datasets: [{
                     
-                    			label: dash_header,
+                    			label: dash_lbl,
                     			data: dash_data,
                     			backgroundColor: dash_color,
                     			borderColor: dash_color,
@@ -133,7 +133,7 @@ dashDona(dash_id, dash_header, dash_labels, dash_data) {
     }
     
     
-dashBar(dash_id, dash_header, dash_labels, dash_data) { 
+dashBar(dash_id, dash_header, dash_lbl, dash_labels, dash_data) { 
         
     var dash_color   = [];
 
@@ -153,7 +153,7 @@ dashBar(dash_id, dash_header, dash_labels, dash_data) {
                 
                 		datasets: [{
                 
-                			label: dash_header,
+                			label: dash_lbl,
                 			data: dash_data,
                 			backgroundColor: dash_color,
                 			borderColor: dash_color,
@@ -173,7 +173,7 @@ dashBar(dash_id, dash_header, dash_labels, dash_data) {
     }
     
     
-dashLine(dash_id, dash_header, dash_labels, dash_data) { 
+dashLine(dash_id, dash_header, dash_lbl, dash_labels, dash_data) { 
         
     var dash_color   = [];
 
@@ -191,7 +191,7 @@ dashLine(dash_id, dash_header, dash_labels, dash_data) {
                         labels: dash_labels,
                         datasets: [{
                                 data: dash_data,
-                                label: dash_header,
+                                label: dash_lbl,
                                 borderColor: "#3e95cd",
                                 fill: false
                                 }]
