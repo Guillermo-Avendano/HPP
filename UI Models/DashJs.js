@@ -1,17 +1,15 @@
 class DashJS {
   constructor() {}
   
-  // Genera numero aleatorio entre 0 y 250
-  generarNumero (numero){return (Math.random()*numero).toFixed(0); }
+// 
+colorRGB(){
+    var r = () => Math.random() * 256 >> 0;
+    var rgbColor = `rgb(${r()}, ${r()}, ${r()})`;
+    
+    return rgbColor;
+    }
   
-  
-  // 
-  colorRGB(){
-    var coolor = "("+this.generarNumero(255)+"," + this.generarNumero(255) + "," + this.generarNumero(255) +")";
-    return "rgb" + coolor;
-  }
 //
-
 dashPolar(dash_id, dash_header, dash_lbl, dash_labels, dash_data) { 
         
     var dash_color   = [];
