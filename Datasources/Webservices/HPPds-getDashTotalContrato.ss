@@ -1,5 +1,5 @@
 function getDashTotalContrato(){
-	var queryStr = "select contrato.setor, process.contrato_id as contrato_id, process.total_duration  from contrato, process  where contrato.contrato_id = process.contrato_id and contrato.process_id = process.process_id and  contrato.process_date = process.process_date order by process.total_duration desc LIMIT 5";
+	var queryStr = "select contrato.setor, process.contrato_id as contrato_id, round(process.total_duration/60,1) total_duration from contrato, process  where contrato.contrato_id = process.contrato_id and contrato.process_id = process.process_id and  contrato.process_date = process.process_date order by process.total_duration desc LIMIT 5";
 	try{
 		$s.query("HPPds", queryStr);
 			results = $s.queryDb();

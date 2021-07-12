@@ -1,5 +1,5 @@
 function getDashWaitArea(){
-	var queryStr = "select target_area, round(avg(process_duration),1) promedio from process  where status = 'IDLE' group by target_area";
+	var queryStr = "select target_area, round(avg(process_duration/60),1) promedio from process  where status = 'IDLE' group by target_area";
 	try{
 		$s.query("HPPds", queryStr);
 			results = $s.queryDb();
