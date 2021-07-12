@@ -66,3 +66,16 @@
 	margin: 4px !important;
 }
 
+.panel-mobius{background-color:white;}
+.panel-container-table{background-color:white;}
+.panel-container-row{background-color:white;}
+.panel-container-col{background-color:white;padding-right:15px;padding-left:15px;}
+.um-control.um-control-mobius.um-docviewer{width:800px !important;height:750px !important;}
+.um-search-doc{background-color:white !important;}
+.um-search-pagination.d-flex.align-items-baseline{background-color:white !important;}
+.um-search-content-wrapper{background-color:white !important;}
+.um-search-heading{background-color:white !important;}
+.um-search-button-text.w-100.h-100.flex-row-reverse.pt-2{background-color:white !important;}
+.mat-icon.notranslate.material-icons.ui-modeller-buttonIcon.ui-modeller-icon-pagination{background-color:white !important;}
+.um-button-icon.um-mat-button.um-primary-button.mat-flat-button.mat-primary.um-search-button.criterian-search-button.advanced-search-button{background-color:white !important;}
+ 
