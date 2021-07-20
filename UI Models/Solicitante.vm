@@ -456,7 +456,7 @@
         "type": "image"
     },
     "isValid": true,
-    "index": 1,
+    "index": 0,
     "url": "/rest",
     "customVariables": {
         "checksum_old": "",
@@ -634,7 +634,7 @@
             "externalScriptsAltered": 1623777157796
         },
         {
-            "checksum_old": 1601087350,
+            "checksum_old": 1106346977,
             "defaultPage": false,
             "sideNav": false,
             "sideNavPos": "start",
